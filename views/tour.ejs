@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <article>
+    <h1><%= tour.name %></h1>
+    <p>Cost: <%= tour.cost %>$</p>
+    <p>Destination: <%= tour.destination %></p>
+    <div class="info">
+      <span><%= tour.dates %></span>
+      <span>Adults: <%= tour.adults %></span>
+      <span><%= tour.children %></span>
+    </div>
+    <a href="/edit/<%= tour.id %>" class="btn-edit">
+      <i class="fas fa-edit"></i>
+    </a>
+    <button class="btn-delete" data-id="<%= tour.id %>">
+      <i class="fas fa-trash-alt" data-id="<%= tour.id %>"></i>
+    </button>
+  </article>
+
+  <script>
+    document.addEventListener('click', (e) => {
+      const id = e.target?.dataset?.id || null;
+      if (id) {
+        fetch(`/tours/${id}`, {
+          method: 'DELETE',
+        }).then(() => {
+          window.location.href = '/tours';
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

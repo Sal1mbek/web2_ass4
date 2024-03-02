@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <form id="tour-form" method="POST" action="/edit/<%= tour.id %>">
+    <div class="form-info">
+      <label>Tour Name
+        <input type="text" name="name" value="<%= tour.name %>">
+      </label>
+      <label>Tour Cost
+        <input type="number" name="cost" min="1" value="<%= tour.cost %>">
+      </label>
+    </div>
+    <div class="form-info">
+      <label>Tour Destination
+        <input type="text" name="destination" placeholder="type a city" value="<%= tour.destination %>">
+      </label>
+      <label>Tour Dates
+        <input type="text" name="dates" placeholder="dd/mm/yyyy" value="<%= tour.dates %>">
+      </label>
+    </div>
+    <div class="form-info">
+      <label>Number of Adults
+        <input type="number" name="adults" min="1" value="<%= tour.adults %>">
+      </label>
+      <label>Number of Children
+        <input type="number" name="children" min="0" value="<%= tour.children %>">
+      </label>
+    </div>
+    <div class="form-button">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</body>
+</html>
