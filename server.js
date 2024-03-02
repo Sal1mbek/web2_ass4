@@ -35,17 +35,17 @@ app.use(express.static('styles'));
 
 app.use(methodOverride('_method'));
 
-app.use(helmet());
+// app.use(helmet());
 
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      // styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
-      // scriptSrc: ["'self'", 'code.jquery.com', 'cdn.jsdelivr.net']
-    }
-  }
-}));
+// app.use(helmet({
+//   contentSecurityPolicy: {
+//     directives: {
+//       defaultSrc: ["'self'"],
+//       // styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+//       // scriptSrc: ["'self'", 'code.jquery.com', 'cdn.jsdelivr.net']
+//     }
+//   }
+// }));
 
 
 app.get('/', (req, res) => {
